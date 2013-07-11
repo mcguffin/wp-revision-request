@@ -3,15 +3,17 @@ WP Revision Request
 
 About
 -----
-This plugin fulfills three tasks regarding WordPress Revisions:
+This plugin adds three features to WordPress' revision management.
 
-1. Selecting wheter you want to save a revision of that contetn or not.
-2. Manually delete revisions when you edit a post.
-3. Display revisions on Your blog. 
+1. Select wheter you want to save a revision or not.
+2. Manually delete a revision.
+3. Display revisions right on Your blog. 
+
 
 Installation
 ------------
 Move the plugin dir in your wp-content directory and activate it in the GUI.
+
 
 Hooks/Plugin API
 ----------
