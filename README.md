@@ -3,16 +3,21 @@ WP Revision Request
 
 About
 -----
-This plugin adds three features to WordPress' revision management.
+This lightweight plugin adds three features to WordPress' revision management.
 
-1. Select wheter you want to save a revision or not.
+1. Saving revisions on demand: Select wheter you want to save a revision or not.
 2. Manually delete a revision.
 3. Display revisions right on Your blog. 
 
+Compatibility
+-------------
+- Works in a multisite environment
+- WP 3.5.2 (to be tested in WP 3.6-beta4)
+- Translation ready.
 
 Installation
 ------------
-Move the plugin dir in your wp-content directory and activate it in the GUI.
+Move the plugin dir in your `wp-content/` directory and activate it in the GUI.
 
 
 Hooks/Plugin API
@@ -45,3 +50,13 @@ Use it to change the default item HTML. Make sure you include a `%s`, where the 
 		return '<span>%s</span>';
 	}
 	add_filter( 'revision_item_html', 'gimme_a_span' , 10 , 3 );
+
+
+Roadmap
+-------
+v 1.0.0
+- Test with custom post types
+- Test without WPs permalink structure
+- Make sure it works in WP 3.6
+
+- Publish on wordpress.org
