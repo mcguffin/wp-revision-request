@@ -34,8 +34,13 @@ class RevisionOnDemand {
 	
 	static function revision_on_demand( $post_ID ) {
 		// if there is no request to store a revision remove WP-action
-		if ( ! isset($_REQUEST['do_store_post_revision']) || $_REQUEST['do_store_post_revision'] != self::$_revision_field_value )
-			remove_action( 'pre_post_update' , 'wp_save_post_revision' );
+		global $wp_version;
+		if ( ! isset($_REQUEST['do_store_post_revision']) || $_REQUEST['do_store_post_revision'] != self::$_revision_field_value ) {
+			if ( $wp_version >= '3.6' )
+				remove_action( 'post_updated' , 'wp_save_post_revision' );
+			else
+				remove_action( 'pre_post_update' , 'wp_save_post_revision' );
+		}
 	}
 	
 
