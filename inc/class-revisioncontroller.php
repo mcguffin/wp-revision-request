@@ -36,7 +36,7 @@ class RevisionController {
 		$post_ID = $_REQUEST['post'];
 		$revision_ID = $_REQUEST['revision'];
 		if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'] , "delete-post_revision_$post_ID|$revision_ID" ) || ! current_user_can( 'delete_post', $post_ID ) )
-			wp_die( __('You do not have permission to delete revisions.') );
+			wp_die( __('You do not have permission to delete revisions.' , 'revisionrequest' ) );
 			
 		if ( $post_ID == wp_is_post_revision( $revision_ID ) )
 			wp_delete_post_revision( $revision_ID );

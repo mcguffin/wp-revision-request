@@ -63,10 +63,13 @@ class RevisionDisplay {
 		
 		$rows = '';
 		$datef = _x( 'j F, Y @ G:i', 'revision date format');
-		$post->post_title .= __(' (Current)');
-		if ( isset($_REQUEST['revision']) ) 
-			array_unshift( $revisions , $post );
-		
+		if ( isset($_REQUEST['revision']) ) {
+			$content .= 
+				sprintf (  
+					apply_filters( 'revision_message_html' , '<div class="message">%s</div>' , $post ) ,
+					sprintf( __('You are viewing an old revision of this page. Click <a href="%s">here</a> to go to the most recent version.' , 'revisionrequest' ) , get_permalink( $post->ID ) ) 
+				);
+		}
 		foreach ( $revisions as $revision ) {
 			if (wp_is_post_autosave( $revision ) )
 				continue;
@@ -79,7 +82,7 @@ class RevisionDisplay {
 			
 			$rows .= sprintf( 
 				apply_filters( 'revision_item_html' , '<li class="revision">%s</li>' , $post , $revision ) , 
-				sprintf('<a class="%s" href="'.$permalink.'">' . __('%s as of %s'  ) . '</a>', $class , $revision->post_title , date_i18n( $datef, strtotime( $revision->post_modified ) )
+				sprintf('<a class="'.$class.'" href="'.$permalink.'">' . _x('%1$s as of %2$s' , 'Revision name, Revision date' , 'revisionrequest' ) . '</a>' , $revision->post_title , date_i18n( $datef, strtotime( $revision->post_modified ) )
 			) );
 		}
 		
