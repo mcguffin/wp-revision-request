@@ -12,11 +12,21 @@ This lightweight plugin adds three features to WordPress' revision management.
 ### Revision Management
 ![Posts Revision Management: Save a revision only on demand. Delete, restore and view Revisions from the Post Editor screen.](screenshot-1.png)
 
+
+Features
+--------
+- Save new Revision on demand
+- Delete revisions
+- Display revision history on the blog
+- Plugin-API
+- German localization
+
+
 Compatibility
 -------------
 - Works in a multisite environment
 - WP 3.5.2 through 3.6-RC1-24704
-- Translation ready.
+
 
 Installation
 ------------
