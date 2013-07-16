@@ -64,6 +64,7 @@ class RevisionController {
 		return $actions;
 	}
 	static function post_revisions_list( $post = 0 , $args = null ) {
+		global $wp_version;
 		if ( !$post )
 			return;
 
@@ -92,15 +93,21 @@ class RevisionController {
 			$class = $class ? '' : " class='alternate'";
 
 			$actions = array();
-			if ( $post->ID != $revision->ID && $can_edit_post ) // restore
-				$actions['restore'] = '<a href="' . wp_nonce_url( add_query_arg( array( 'revision' => $revision->ID, 'action' => 'restore'  ), 'revision.php' ), "restore-post_$post->ID|$revision->ID" ) . '">' . __( 'Restore' ) . '</a>';
-			
+			if ( $post->ID != $revision->ID && $can_edit_post ) { // restore
+				if ( $wp_version >= '3.6' )
+					$nonce_param = "restore-post_$revision->ID";
+				else
+					$nonce_param = "restore-post_$post->ID|$revision->ID";
+				
+				$actions['restore'] = '<a href="' . wp_nonce_url( add_query_arg( array( 'revision' => $revision->ID, 'action' => 'restore'  ), 'revision.php' ), $nonce_param ) . '">' . __( 'Restore' ) . '</a>';
+			}
 			if ( $post->ID != $revision->ID && $can_delete_post ) // restore
 				$actions['delete'] = '<a class="delete-revision" href="' . wp_nonce_url( add_query_arg( array( 'post' => $post->ID , 'revision' => $revision->ID, 'action' => 'delete-revision' )  ), "delete-post_revision_$post->ID|$revision->ID" ) . '">' . __( 'Delete' ) . '</a>';
 			
 			$actions = implode( ' | ' , apply_filters( 'revisioncontroller_actions' , $actions , $post->ID , $revision->ID ) );
 			$rows .= "<tr$class>\n";
-			$rows .= "\t<td>$ID</td>\n";
+			if ( $wp_version < '3.6' )
+				$rows .= "\t<td>$ID</td>\n";
 			$rows .= "\t<td>$date</td>\n";
 			$rows .= "\t<td>$name</td>\n";
 			$rows .= "\t<td class='action-links'>$actions</td>\n";
@@ -109,14 +116,17 @@ class RevisionController {
 
 	?>
 	<table class="widefat post-revisions" cellspacing="0" id="post-revisions">
-		<col />
-		<col />
+		<?php if ( $wp_version < '3.6' ) { ?>
+			<col />
+		<?php } ?>
 		<col style="width: 33%" />
 		<col style="width: 33%" />
 		<col style="width: 33%" />
 	<thead>
 	<tr>
-		<th scope="col"><?php _e( 'ID' ); ?></th>
+		<?php if ( $wp_version < '3.6' ) { ?>
+			<th scope="col"><?php _e( 'ID' ); ?></th>
+		<?php } ?>
 		<th scope="col"><?php /* translators: column name in revisions */ _ex( 'Date Created', 'revisions column name' ); ?></th>
 		<th scope="col"><?php _e( 'Author' ); ?></th>
 		<th scope="col" class="action-links"><?php _e( 'Actions' ); ?></th>
