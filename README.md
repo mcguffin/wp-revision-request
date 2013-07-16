@@ -9,6 +9,9 @@ This lightweight plugin adds three features to WordPress' revision management.
 2. Manually delete a revision.
 3. Display revisions right on Your blog. 
 
+### Revision Management
+![Posts Revision Management: Save a revision only on demand. Delete, restore and view Revisions from the Post Editor screen.](screenshot-1.png)
+
 Compatibility
 -------------
 - Works in a multisite environment
