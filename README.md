@@ -15,7 +15,7 @@ This lightweight plugin adds three features to WordPress' revision management.
 Compatibility
 -------------
 - Works in a multisite environment
-- WP 3.5.2 through 3.6 beta4
+- WP 3.5.2 through 3.6-RC1-24704
 - Translation ready.
 
 Installation
@@ -60,5 +60,6 @@ Roadmap
 v 1.0.0
 - Test with custom post types
 - Translate to german
+- Optional Show Revisions on Post.
 
 - Publish on wordpress.org
