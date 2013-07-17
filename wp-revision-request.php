@@ -10,7 +10,7 @@ Plugin URI: https://github.com/mcguffin/wp-revision-request
 Description: More revision control: Create revision only upon request. Controls to delete revisions. Display revisions on the blog.
 Author: Joern Lund
 Version: 0.9.0b
-Author URI: http://flyingletters.com
+Author URI: https://github.com/mcguffin
 */
 
 
