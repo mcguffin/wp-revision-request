@@ -51,11 +51,13 @@ Either post it on [GitHub](https://github.com/mcguffin/wp-revision-request) orâ€
 
 == Changelog ==
 
-1.0.0 Initial Release
-
+= 1.0.0 =
+Initial Release
 
 == Upgrade notice ==
 
+= 1.0.0 =
+A plugin is born.
 
 == Plugin API ==
 
