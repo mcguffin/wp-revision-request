@@ -1,6 +1,6 @@
 === WP Revision Request ===
 Contributors: podpirate
-Donate link: 
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CXETZUWYAAVC8
 Tags: revisions
 Requires at least: 3.5
 Tested up to: 3.6
