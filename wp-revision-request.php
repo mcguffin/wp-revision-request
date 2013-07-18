@@ -6,7 +6,7 @@
 
 /*
 Plugin Name: RevisionRequest
-Plugin URI: https://github.com/mcguffin/wp-revision-request
+Plugin URI: http://wordpress.org/plugins/wp-revision-request/
 Description: More revision control: Create revision only upon request. Controls to delete revisions. Display revisions on the blog.
 Author: Joern Lund
 Version: 1.0.0
