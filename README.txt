@@ -63,33 +63,4 @@ A plugin is born.
 
 The plugin offers a couple of filters to allow Theme authors to hook in.
 
-Filter `revisioncontroller_actions`:
-Use it to add or remove Actions from the revisions metabox.
-'<?php
-	// will remove the restore action from Controller Meta Box
-	function remove_restore_action( $actions , $post_ID , $revision_ID ) {
-		unset($actions['restore']);
-		return $actions;
-	}
-	add_filter( 'revisioncontroller_actions', 'remove_restore_action' , 10 , 3 );
-?>'
-
-Filter `revision_container_html`:
-Use it to change the default container HTML. Make sure you include a `%s`, where the item HTML is merged.
-
-'<?php
-	function gimme_a_div( $html , $post ) {
-		return '<div>%s</div>';
-	}
-	add_filter( 'revision_container_html', 'gimme_a_div' , 10 , 2 );
-?>'
-
-Filter `revision_item_html`:
-Use it to change the default item HTML. Make sure you include a `%s`, where the item's link is merged.
-
-'<?php
-	function gimme_a_span( $html , $post , $revision ) {
-		return '<span>%s</span>';
-	}
-	add_filter( 'revision_item_html', 'gimme_a_span' , 10 , 3 );
-?>'
+Visit the [GitHub-Repo](https://github.com/mcguffin/wp-revision-request) for details.
