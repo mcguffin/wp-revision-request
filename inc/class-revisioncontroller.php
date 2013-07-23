@@ -31,7 +31,6 @@ class RevisionController {
 		}
 		add_filter( 'post_updated_messages' , array(__CLASS__ , 'set_messages' ) ) ;
 		add_action( 'admin_action_delete-revision' , array( __CLASS__ , 'delete_revision' ) );
-		add_filter('contextual_help', array( __CLASS__ , 'controller_help' ) , 10, 3);
 	}
 	static function delete_revision(){
 		$post_ID = $_REQUEST['post'];
@@ -144,27 +143,6 @@ class RevisionController {
 
 	do_action( 'revisioncontroller_after' , $post );
 
-	}
-	
-	static function controller_help( $contextual_help, $screen_id, $screen ) {
-		if ( $screen_id == 'post' ) {
-			$args = array(  
-				'title' => __( 'Revisions' ), 
-				'id' => 'revisionrequest-controller', 
-				'content' => sprintf( __('<ul>
-					<li>
-						<strong>%1$s</strong> – …
-					</li>
-					<li>
-						<strong>%2$s</strong> – …
-					</li>
-				</ul>', 'revisionrequest') , 
-					__('Create new Revision','revisionrequest'),
-					__( 'Revisions' )
-				),
-			);
-			$screen->add_help_tab( $args );
-		}
 	}
 	
 	
