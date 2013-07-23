@@ -37,6 +37,24 @@ Hooks/Plugin API
 ----------
 The plugin offers a couple of filters to allow Theme authors to hook in.
 
+Action `revisioncontroller_before`:
+Called before the MetaBox is rendered.
+
+	function tell_me_something_new( $post ) {
+		echo $post->title . ' has some revisions. Take care.';
+	}
+	add_filter( 'revisioncontroller_before', 'tell_me_something_new' );
+
+Action `revisioncontroller_after`:
+Called after the MetaBox has been rendered.
+
+	function tell_me_more( $post ) {
+		echo 'Thank you for regarding all safety precautions.';
+	}
+	add_filter( 'revisioncontroller_after', 'tell_me_more' );
+
+
+
 Filter `revisioncontroller_actions`:
 Use it to add or remove Actions from the revisions metabox.
 
@@ -69,6 +87,9 @@ Roadmap
 -------
 v 1.0.1
 - Test with custom post types
-- Optional Show Revisions on Post.
-- Add help to save-revision-chackbox
+√ Optional Show Revisions on Post.
+√ Add help to save-revision-checkbox
 - Help-Text on post edit header
+- pretty permalinks.
+	- use 'revision/$revision_slug' instead of '?revision=$revision_ID'
+	- enter revision slug on post edit

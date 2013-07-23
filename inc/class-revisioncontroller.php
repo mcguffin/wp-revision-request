@@ -31,6 +31,7 @@ class RevisionController {
 		}
 		add_filter( 'post_updated_messages' , array(__CLASS__ , 'set_messages' ) ) ;
 		add_action( 'admin_action_delete-revision' , array( __CLASS__ , 'delete_revision' ) );
+		add_filter('contextual_help', array( __CLASS__ , 'controller_help' ) , 10, 3);
 	}
 	static function delete_revision(){
 		$post_ID = $_REQUEST['post'];
@@ -113,7 +114,7 @@ class RevisionController {
 			$rows .= "\t<td class='action-links'>$actions</td>\n";
 			$rows .= "</tr>\n";
 		}
-
+	do_action( 'revisioncontroller_before' , $post );
 	?>
 	<table class="widefat post-revisions" cellspacing="0" id="post-revisions">
 		<?php if ( $wp_version < '3.6' ) { ?>
@@ -140,7 +141,32 @@ class RevisionController {
 	</table>
 
 	<?php
+
+	do_action( 'revisioncontroller_after' , $post );
+
 	}
+	
+	static function controller_help( $contextual_help, $screen_id, $screen ) {
+		if ( $screen_id == 'post' ) {
+			$args = array(  
+				'title' => __( 'Revisions' ), 
+				'id' => 'revisionrequest-controller', 
+				'content' => sprintf( __('<ul>
+					<li>
+						<strong>%1$s</strong> – …
+					</li>
+					<li>
+						<strong>%2$s</strong> – …
+					</li>
+				</ul>', 'revisionrequest') , 
+					__('Create new Revision','revisionrequest'),
+					__( 'Revisions' )
+				),
+			);
+			$screen->add_help_tab( $args );
+		}
+	}
+	
 	
 	
 	
