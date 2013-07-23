@@ -99,8 +99,11 @@ class RevisionDisplay {
 		if ( isset($_REQUEST['revision']) ) {
 			$content .= 
 				sprintf (  
-					apply_filters( 'revision_message_html' , '<div class="message">%s</div>' , $post ) ,
-					sprintf( __('You are viewing an old revision of this page. Click <a href="%s">here</a> to go to the most recent version.' , 'revisionrequest' ) , get_permalink( $post->ID ) ) 
+					apply_filters( 'revision_message_html' , "<div class=\"message\">%s</div>" , $post ) ,
+					sprintf( 
+						__("You are viewing an old revision of this page. Click <a href='%s'>here</a> to go to the most recent version." , 'revisionrequest' ) , 
+						get_permalink( $post->ID ) 
+					) 
 				);
 		}
 		foreach ( $revisions as $revision ) {
