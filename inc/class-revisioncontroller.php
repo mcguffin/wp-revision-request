@@ -71,6 +71,8 @@ class RevisionController {
 		$defaults = array( 'parent' => false, 'right' => false, 'left' => false, 'type' => 'all' );
 		extract( wp_parse_args( $args, $defaults ), EXTR_SKIP );
 		
+		do_action( 'revisioncontroller_before' , $post );
+		
 		if ( !$revisions = wp_get_post_revisions( $post->ID ) )
 			return;
 	
@@ -113,7 +115,6 @@ class RevisionController {
 			$rows .= "\t<td class='action-links'>$actions</td>\n";
 			$rows .= "</tr>\n";
 		}
-	do_action( 'revisioncontroller_before' , $post );
 	?>
 	<table class="widefat post-revisions" cellspacing="0" id="post-revisions">
 		<?php if ( $wp_version < '3.6' ) { ?>
