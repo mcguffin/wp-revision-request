@@ -67,9 +67,8 @@ Use it to change the default item HTML. Make sure you include a `%s`, where the 
 
 Roadmap
 -------
-v 1.0.0
+v 1.0.1
 - Test with custom post types
-- Translate to german
 - Optional Show Revisions on Post.
-
-- Publish on wordpress.org
+- Add help to save-revision-chackbox
+- Help-Text on post edit header
