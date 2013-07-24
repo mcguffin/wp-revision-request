@@ -25,6 +25,8 @@ class RevisionOnDemand {
 	
 	static function post_submitbox_revision_action() {
 		global $post, $wp_version;
+		if ( ! post_type_supports( $post->post_type , 'revisions' ) )
+			return;
 		?><div class="misc-pub-section curtime">
 		<input id="do_store_revision" type="checkbox" name="<?php echo self::$_revision_field_name ?>" value="<?php echo self::$_revision_field_value ?>" />
 		<label for="do_store_revision"><?php _e('Create new Revision','revisionrequest') ?></label>
