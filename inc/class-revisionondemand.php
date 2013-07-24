@@ -42,6 +42,8 @@ class RevisionOnDemand {
 	
 	static function revision_on_demand( $post_ID ) {
 		// if there is no request to store a revision remove WP-action
+		if ( ! post_type_supports( get_post($post_ID)->post_type , 'revisions' ) )
+			return;
 		global $wp_version;
 		if ( ! isset($_REQUEST['do_store_post_revision']) || $_REQUEST['do_store_post_revision'] != self::$_revision_field_value ) {
 			if ( $wp_version >= '3.6' )
