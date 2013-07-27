@@ -16,7 +16,7 @@ class RevisionDisplay {
 	private static $revision = null;
 	static function init() {
 		// add revision selector the_content
-		// add revision note to post title / post_meta (this version s from ... goto current version)
+		// add revision note to post title / post_meta (this version is from ... goto current version)
 		// do something with the permalinks
 		add_filter( 'revisioncontroller_actions' , array( __CLASS__ , 'add_action_view' ) , 10 , 3 );
 		add_action( 'wp' , array(__CLASS__,'prepare_display_revision')); // wp is the first hook we know $post
