@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: RevisionRequest v0.9.0b\n"
+"Project-Id-Version: RevisionRequest v1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-07-12 10:26:21+0000\n"
+"PO-Revision-Date: 2013-07-27 11:59:30+0000\n"
 "Last-Translator: admin <joern@flyingletters.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,8 @@ msgstr ""
 "X-Textdomain-Support: yes"
 
 #: inc/class-revisioncontroller.php:29
+#: inc/class-revisionrequestcore.php:35
+#: inc/class-revisionrequestcore.php:46
 #@ default
 msgid "Revisions"
 msgstr ""
@@ -35,71 +37,101 @@ msgstr "Du hast nicht die erforderlichen Rechte, um eine Revision zu löschen."
 msgid "Revision deleted."
 msgstr "Revision gelöscht."
 
-#: inc/class-revisioncontroller.php:76
+#: inc/class-revisioncontroller.php:79
 #, php-format
 #@ default
 msgctxt "post revision"
 msgid "%1$s by %2$s"
 msgstr ""
 
-#: inc/class-revisioncontroller.php:96
+#: inc/class-revisioncontroller.php:104
 #@ default
 msgid "Restore"
 msgstr ""
 
-#: inc/class-revisioncontroller.php:99
+#: inc/class-revisioncontroller.php:107
 #@ default
 msgid "Delete"
 msgstr ""
 
-#: inc/class-revisioncontroller.php:119
+#: inc/class-revisioncontroller.php:129
 #@ default
 msgid "ID"
 msgstr ""
 
-#. translators: column name in revisions
-#: inc/class-revisioncontroller.php:120
+#. translators: column name in revisions 
+#: inc/class-revisioncontroller.php:131
 #@ default
 msgctxt "revisions column name"
 msgid "Date Created"
 msgstr ""
 
-#: inc/class-revisioncontroller.php:121
+#: inc/class-revisioncontroller.php:132
 #@ default
 msgid "Author"
 msgstr ""
 
-#: inc/class-revisioncontroller.php:122
+#: inc/class-revisioncontroller.php:133
 #@ default
 msgid "Actions"
 msgstr ""
 
-#: inc/class-revisiondisplay.php:65
+#: inc/class-revisiondisplay.php:98
 #@ default
 msgctxt "revision date format"
 msgid "j F, Y @ G:i"
 msgstr ""
 
-#: inc/class-revisiondisplay.php:70
-#, php-format
-#@ revisionrequest
-msgid "You are viewing an old revision of this page. Click <a href=\"%s\">here</a> to go to the most recent version."
-msgstr "Du siehst gerade eine ältere Version dieser Seite. <a href=\\\"%s\\\">Hier</a> geht es zum aktuellen Stand."
-
-#: inc/class-revisiondisplay.php:96
+#: inc/class-revisiondisplay.php:135
 #@ default
 msgid "View"
 msgstr ""
 
-#: inc/class-revisionondemand.php:30
+#: inc/class-revisionondemand.php:32
+#: inc/class-revisionrequestcore.php:45
 #@ revisionrequest
 msgid "Create new Revision"
 msgstr "Eine neue Revision erstellen."
 
-#: inc/class-revisiondisplay.php:85
+#: inc/class-revisiondisplay.php:121
 #, php-format
 #@ revisionrequest
 msgctxt "Revision name, Revision date"
 msgid "%1$s as of %2$s"
 msgstr "%1$s vom %2$s"
+
+#: inc/class-revisiondisplay.php:37
+#@ revisionrequest
+msgid "Show revision List below post content."
+msgstr ""
+
+#: inc/class-revisiondisplay.php:104
+#, php-format
+#@ revisionrequest
+msgid "You are viewing an old revision of this page. Click <a href='%s'>here</a> to go to the most recent version."
+msgstr ""
+
+#: inc/class-revisionondemand.php:35
+#@ revisionrequest
+msgid "Saves this post and creates a new revision."
+msgstr ""
+
+#: inc/class-revisionondemand.php:37
+#@ revisionrequest
+msgid "Saves your changes in a new revision."
+msgstr ""
+
+#: inc/class-revisionrequestcore.php:37
+#, php-format
+#@ revisionrequest
+msgid ""
+"<ul>\n"
+"\t\t\t\t\t<li>\n"
+"\t\t\t\t\t\t<strong>%1$s</strong> – …\n"
+"\t\t\t\t\t</li>\n"
+"\t\t\t\t\t<li>\n"
+"\t\t\t\t\t\t<strong>%2$s</strong> – …\n"
+"\t\t\t\t\t</li>\n"
+"\t\t\t\t</ul>"
+msgstr ""
 
