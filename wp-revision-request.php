@@ -16,9 +16,13 @@ Author URI: https://github.com/mcguffin
 
 require_once( dirname(__FILE__). '/inc/class-revisionrequestcore.php' );
 
-if ( is_admin() ) {
+function load_backend( ) {
 	require_once( dirname(__FILE__). '/inc/class-revisionondemand.php' );
 	require_once( dirname(__FILE__). '/inc/class-revisioncontroller.php' );
+}
+
+if ( is_admin() ) {
+	add_action('load-post.php' , 'load_backend' );
 } else {
 	require_once( dirname(__FILE__). '/inc/class-revisiondisplay.php' );
 }

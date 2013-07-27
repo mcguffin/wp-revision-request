@@ -45,19 +45,20 @@ Use the GitHub Repo rather than the WordPress Plugin. Do as follows:
 
 Either post it on [GitHub](https://github.com/mcguffin/wp-revision-request) or—if you are working on a cloned repository—send me a pull request.
 
+
 == Screenshots ==
 
 1. Improved Posts editor.
+
 
 == Changelog ==
 
 = 1.0.0 =
 Initial Release
 
-== Upgrade notice ==
-
-= 1.0.0 =
-A plugin is born.
+= 1.0.1 =
+- Require files only if needed
+- 
 
 == Plugin API ==
 

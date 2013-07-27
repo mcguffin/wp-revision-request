@@ -18,7 +18,7 @@ class RevisionOnDemand {
 
 	static function init() {
 		// add checkbox to wp-publish metabox
-		add_action( 'admin_init' , array(__CLASS__,'admin_init') );
+		self::add_submitbox_action();
 		// add action.
 		add_action( 'pre_post_update' , array(__CLASS__,'revision_on_demand') , 1 );
 	}
@@ -60,10 +60,6 @@ class RevisionOnDemand {
 
 
 	// translation ready.
-	static function admin_init( ) {
-		// add revision only on 
-		add_action('load-post.php' , array(__CLASS__,'add_submitbox_action') );
-	}
 	static function add_submitbox_action() {
 		add_action('post_submitbox_misc_actions' , array(__CLASS__,'post_submitbox_revision_action'));
 	}
