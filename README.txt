@@ -58,7 +58,12 @@ Initial Release
 
 = 1.0.1 =
 - Require files only if needed
-- 
+
+= 1.0.2 =
+- Several fixes
+- determine WordPress' revision behaviour by has_action($hook , 'wp_save_post_revision') rather than by version number.
+- Add and translate help panel.
+
 
 == Plugin API ==
 

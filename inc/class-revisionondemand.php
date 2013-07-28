@@ -31,9 +31,9 @@ class RevisionOnDemand {
 		<input id="do_store_revision" type="checkbox" name="<?php echo self::$_revision_field_name ?>" value="<?php echo self::$_revision_field_value ?>" />
 		<label for="do_store_revision"><?php _e('Create new Revision','revisionrequest') ?></label>
 		<p class="howto"><?php 
-			if ( $wp_version >= '3.6' )
+			if ( has_action( 'post_updated' , 'wp_save_post_revision' ) ) // > 3.6 behaviour
 				_e( 'Saves this post and creates a new revision.' , 'revisionrequest' ) ;
-			else
+			else if ( has_action( 'pre_post_update' , 'wp_save_post_revision' ) ) 
 				_e( 'Saves your changes in a new revision.' , 'revisionrequest' ) ;
 		?></p>
 	</div><?php // /misc-pub-section ?>
@@ -46,9 +46,9 @@ class RevisionOnDemand {
 			return;
 		global $wp_version;
 		if ( ! isset($_REQUEST['do_store_post_revision']) || $_REQUEST['do_store_post_revision'] != self::$_revision_field_value ) {
-			if ( $wp_version >= '3.6' )
+			if ( has_action( 'post_updated' , 'wp_save_post_revision' ) ) // > 3.6 behaviour
 				remove_action( 'post_updated' , 'wp_save_post_revision' );
-			else
+			else if ( has_action( 'pre_post_update' , 'wp_save_post_revision' ) ) 
 				remove_action( 'pre_post_update' , 'wp_save_post_revision' );
 		}
 	}
