@@ -17,20 +17,19 @@ class RevisionController {
 	
 	private static $del_msg_id;
 	
-	static function init() {
-		// add meta box
-		add_action( 'admin_init' , array(__CLASS__,'admin_init') );
-	}
-
-	static function admin_init( ) {
+	static function init( ) {
+		$revisions_active = false;
 		foreach ( get_post_types() as $post_type ) {
 			if ( post_type_supports( $post_type , 'revisions' ) ) {
 				remove_meta_box('revisionsdiv', $post_type , 'core');
 				add_meta_box('revisioncontroller', __('Revisions'), array(__CLASS__,'post_revisions_meta_box'), $post_type , 'normal', 'core');
+				$revisions_active = true;
 			}
 		}
-		add_filter( 'post_updated_messages' , array(__CLASS__ , 'set_messages' ) ) ;
-		add_action( 'admin_action_delete-revision' , array( __CLASS__ , 'delete_revision' ) );
+		if ( $revisions_active ) {
+			add_filter( 'post_updated_messages' , array(__CLASS__ , 'set_messages' ) ) ;
+			add_action( 'admin_action_delete-revision' , array( __CLASS__ , 'delete_revision' ) );
+		}
 	}
 	static function delete_revision(){
 		$post_ID = $_REQUEST['post'];
