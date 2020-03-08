@@ -1,6 +1,8 @@
 WP Revision Request
 ===================
 
+**This plugin is no longer maintained.** It may magically vanish some day.
+
 About
 -----
 This lightweight plugin adds three features to WordPress' revision management.

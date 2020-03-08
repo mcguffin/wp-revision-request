@@ -12,6 +12,8 @@ More revision control in Wordpress: create revision on demand, delete revisions 
 
 == Description ==
 
+*This plugin is no longer maintained.*
+
 This lightweight plugin adds three features to WordPress' revision management.
 
 1. Saving revisions on demand: Select wheter you want to save a revision or not.
