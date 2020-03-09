@@ -1,7 +1,7 @@
 WP Revision Request
 ===================
 
-**This plugin is no longer maintained.** It may magically vanish some day.
+>**This plugin is no longer maintained.** It may magically vanish some day.
 
 About
 -----
