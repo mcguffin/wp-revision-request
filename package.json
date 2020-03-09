@@ -1,0 +1,43 @@
+{
+  "name": "wp-revision-request",
+  "version": "1.0.2",
+  "description": "More revision control: Create revision only upon request. Controls to delete revisions. Display revisions on the blog.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcguffin/wp-revision-request.git"
+  },
+  "author": "Jörn Lund",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcguffin/wp-revision-request/issues"
+  },
+  "homepage": "https://github.com/mcguffin/wp-revision-request#readme",
+  "devDependencies": {},
+  "wporg": {
+    "steps": [
+      "build",
+      "git",
+      "github",
+      "wporg"
+    ],
+    "type": "plugin",
+    "build": {
+      "prebuild": [
+        "wp i18n make-pot . languages/wp-revision-request.pot --domain=wp-revision-request --exclude=tmp"
+      ],
+      "build": []
+    },
+    "git": {
+      "host": "github.com",
+      "user": "mcguffin"
+    },
+    "wporg": {
+      "assets": ".wporg",
+      "svn_user": "podpirate",
+      "svn": "https://plugins.svn.wordpress.org/wp-revision-request/"
+    }
+  }
+}
