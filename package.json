@@ -1,6 +1,6 @@
 {
   "name": "wp-revision-request",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "More revision control: Create revision only upon request. Controls to delete revisions. Display revisions on the blog.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,14 +20,12 @@
     "steps": [
       "build",
       "git",
-      "github",
       "wporg"
     ],
     "type": "plugin",
     "build": {
-      "prebuild": [
-        "wp i18n make-pot . languages/wp-revision-request.pot --domain=wp-revision-request --exclude=tmp"
-      ],
+      "versionedFiles": null,
+      "prebuild": [],
       "build": []
     },
     "git": {

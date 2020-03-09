@@ -9,7 +9,7 @@ Plugin Name: RevisionRequest
 Plugin URI: http://wordpress.org/plugins/wp-revision-request/
 Description: <strong>PLUGIN ABANDONED!</strong> More revision control: Create revision only upon request. Controls to delete revisions. Display revisions on the blog.
 Author: Joern Lund
-Version: 1.0.2
+Version: 1.0.3
 Author URI: https://github.com/mcguffin
 */
 
