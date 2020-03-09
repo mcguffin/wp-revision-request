@@ -12,7 +12,13 @@ More revision control in Wordpress: create revision on demand, delete revisions 
 
 == Description ==
 
-*This plugin is no longer maintained.*
+
+<div class="plugin-notice notice notice-error notice-alt">
+
+“WP Revision Request” is no longer maintained. It may disappear without further notice.
+
+</div>
+
 
 This lightweight plugin adds three features to WordPress' revision management.
 
